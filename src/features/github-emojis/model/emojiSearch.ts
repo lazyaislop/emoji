@@ -1,5 +1,9 @@
 import { getEmojiSection, type EmojiSection } from './emoji'
-import { emojiSearchRoutes } from './emojiSearchRoutes'
+import {
+  communityEmojiSearchRoutes,
+  emojiSearchRoutes,
+  type EmojiSearchRoute,
+} from './emojiSearchRoutes'
 
 export type EmojiSearchEntry = {
   name: string
@@ -57,12 +61,13 @@ function matchesRoute(queryTokens: string[], routeTerms: string[]): boolean {
 function getRouteSuggestions(
   index: EmojiSearchEntry[],
   queryTokens: string[],
+  routes: EmojiSearchRoute[],
 ): EmojiSearchEntry[] {
   const entriesByName = new Map(index.map((entry) => [entry.name, entry]))
   const seenNames = new Set<string>()
   const suggestions: EmojiSearchEntry[] = []
 
-  for (const route of emojiSearchRoutes) {
+  for (const route of routes) {
     const terms = [route.ar, route.zh, route.en, route.fr, route.ru, route.es]
     if (!matchesRoute(queryTokens, terms)) {
       continue
@@ -108,13 +113,14 @@ function getTokenScore(queryToken: string, entry: EmojiSearchEntry): number {
 export function searchEmojiIndex(
   index: EmojiSearchEntry[],
   query: string,
+  routes: EmojiSearchRoute[] = [...emojiSearchRoutes, ...communityEmojiSearchRoutes],
 ): EmojiSearchEntry[] {
   const queryTokens = tokenize(query)
   if (queryTokens.length === 0) {
     return index
   }
 
-  const suggestions = getRouteSuggestions(index, queryTokens)
+  const suggestions = getRouteSuggestions(index, queryTokens, routes)
   const suggestedNames = new Set(suggestions.map((entry) => entry.name))
   const directMatches = index
     .map((entry) => ({

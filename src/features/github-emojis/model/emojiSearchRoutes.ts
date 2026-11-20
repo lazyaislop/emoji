@@ -5,11 +5,17 @@ export type EmojiSearchRoute = Record<UNLanguage, string> & {
   suggestions: EmojiShortcode[]
 }
 
+export type CommunityEmojiSearchRoute = EmojiSearchRoute & {
+  id: string
+}
+
 export type EmojiSearchDescription = {
   title: EmojiShortcode
 } & Partial<Record<UNLanguage, string[]>>
 
 export const emojiSearchDescriptions: EmojiSearchDescription[] = []
+
+export const communityEmojiSearchRoutes: CommunityEmojiSearchRoute[] = []
 
 export const emojiSearchRoutes: EmojiSearchRoute[] = [
   {

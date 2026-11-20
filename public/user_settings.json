@@ -1,0 +1,19 @@
+{
+  "id": "user_settings",
+  "language": "en",
+  "categories": {
+    "Other": { "show": true, "dim": false },
+    "Animals": { "show": true, "dim": false },
+    "Emotes": { "show": true, "dim": false },
+    "Sports & activities": { "show": true, "dim": false },
+    "Celestial": { "show": true, "dim": false },
+    "Weather": { "show": true, "dim": false },
+    "Unicode": { "show": false, "dim": true },
+    "Arrows": { "show": true, "dim": true },
+    "Clocks": { "show": true, "dim": true },
+    "Colors": { "show": true, "dim": false },
+    "People": { "show": false, "dim": true },
+    "Countries": { "show": false, "dim": true },
+    "GitHub": { "show": true, "dim": false }
+  }
+}
