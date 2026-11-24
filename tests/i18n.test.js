@@ -8,7 +8,7 @@ Scenario('the language radio translates the UI and document metadata', async ({ 
   I.see('GitHub emoji', 'h1')
   I.seeAttributesOnElements('input[type="search"]', { placeholder: 'Search emoji…' })
 
-  I.click('.category-menu > summary')
+  I.click('#category-trigger')
   I.waitForVisible('.language-panel')
   I.checkOption('input[name="display-language"][value="ru"]')
 
@@ -23,13 +23,13 @@ Scenario('the language radio translates the UI and document metadata', async ({ 
 Scenario('switching to a team profile keeps the user settings language', async ({ I }) => {
   I.amOnPage('/')
   I.waitForElement('h1')
-  I.click('.category-menu > summary')
+  I.click('#category-trigger')
   I.waitForVisible('.settings-profile')
   I.checkOption('input[name="display-language"][value="ru"]')
   I.see('Эмодзи GitHub', 'h1')
 
   I.click('//button[.//span[text()="vegan_team"]]')
-  I.click('.category-menu > summary')
+  I.click('#category-trigger')
 
   I.see('Эмодзи GitHub', 'h1')
   I.see('Vegetables')
@@ -40,7 +40,7 @@ Scenario('switching to a team profile keeps the user settings language', async (
 Scenario('Arabic switches the layout direction', async ({ I }) => {
   I.amOnPage('/')
   I.waitForElement('h1')
-  I.click('.category-menu > summary')
+  I.click('#category-trigger')
   I.waitForVisible('.language-panel')
   I.checkOption('input[name="display-language"][value="ar"]')
 

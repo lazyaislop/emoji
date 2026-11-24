@@ -32,10 +32,10 @@ Scenario('editing a team profile JSON adds emojis without a rebuild', async ({ I
 
     await I.amOnPage('/')
     await I.waitForElement('h1')
-    await I.click('.category-menu > summary')
+    await I.click('#category-trigger')
     await I.waitForVisible('.settings-profile')
     await I.click('//button[.//span[text()="vegan_team"]]')
-    await I.click('.category-menu > summary')
+    await I.click('#category-trigger')
     await I.waitForElement('button[title=":cactus:"]')
   } finally {
     await writeFile(veganProfileFile, original)
@@ -45,6 +45,6 @@ Scenario('editing a team profile JSON adds emojis without a rebuild', async ({ I
 Scenario('the project emoji cache is detected from manifest.json', async ({ I }) => {
   await I.amOnPage('/')
   await I.waitForElement('h1')
-  await I.click('.category-menu > summary')
+  await I.click('#category-trigger')
   await I.see('Project cache is available')
 })

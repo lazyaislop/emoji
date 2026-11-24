@@ -41,6 +41,11 @@ import {
   type EmojiSearchEntry,
 } from '../model/emojiSearch'
 import {
+  buildEmotionIndex,
+  searchEmotions,
+  type EmojiEmotionsData,
+} from '../model/emojiEmotions'
+import {
   type DefaultSettings,
   type SectionPreference,
   type SettingsProfileId,
@@ -253,7 +258,13 @@ export function EmojiGhView() {
   const [projectFilesStatus, setProjectFilesStatus] = useState('')
   const [isRebuildingCache, setIsRebuildingCache] = useState(false)
   const [isConnectingProjectFiles, setIsConnectingProjectFiles] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
   const [communityRoutes] = useState(initialData.communityRoutes)
+  const [emotionData, setEmotionData] = useState<EmojiEmotionsData | null>(null)
+  const [emotionIndex, setEmotionIndex] = useState<
+    ReturnType<typeof buildEmotionIndex> | null
+  >(null)
   const activeTeam = teamSettings.find(({ id }) => id === settingsProfile)
   const activeUserSettings: UserSettings | DefaultSettings =
     settingsProfile === defaultSettings.id ? defaultSettings : userSettings
@@ -271,7 +282,7 @@ export function EmojiGhView() {
     [activeLanguage],
   )
   const emojiIndex = useMemo(() => buildEmojiSearchIndex(emojiData), [emojiData])
-  const searchResults = useMemo(
+  const nameSearchResults = useMemo(
     () =>
       searchEmojiIndex(emojiIndex, query, [
         ...emojiSearchRoutes,
@@ -280,12 +291,84 @@ export function EmojiGhView() {
     [communityRoutes, emojiIndex, query],
   )
 
+  // Semantic emotion results: match query tokens against human-written
+  // descriptions in all six languages at once. No language switch needed.
+  const emotionResults = useMemo(() => {
+    if (!emotionIndex || !emotionData || !query.trim()) {
+      return []
+    }
+    return searchEmotions(emotionIndex, query)
+  }, [emotionIndex, emotionData, query])
+
+  const searchResults = useMemo(() => {
+    const queryTokens = query.trim()
+      .normalize('NFKD')
+      .replace(/\p{M}/gu, '')
+      .toLowerCase()
+      .split(/[^\p{L}\p{N}]+/u)
+      .filter(Boolean)
+
+    // Start with name/route-based results.
+    const byName = new Map<string, EmojiSearchEntry>()
+    for (const entry of nameSearchResults) {
+      byName.set(entry.name, entry)
+    }
+
+    // Add emotion-matched emojis, looking up their URLs from the catalog.
+    for (const result of emotionResults) {
+      if (byName.has(result.name)) continue
+      const url = emojiData[result.name]
+      if (!url) continue
+      byName.set(result.name, {
+        name: result.name,
+        url,
+        section: result.section as EmojiSection,
+        nameTokens: [],
+        searchTokens: [],
+      })
+    }
+
+    // If there is a query, keep only entries that match at least one query
+    // token by name (for emotion results the match already happened).
+    if (queryTokens.length === 0) {
+      return [...byName.values()]
+    }
+
+    return [...byName.values()]
+  }, [nameSearchResults, emotionResults, emojiData, query])
+
   useEffect(() => {
     languageRef.current = activeLanguage
     document.documentElement.lang = activeLanguage
     document.documentElement.dir = activeLanguage === 'ar' ? 'rtl' : 'ltr'
     writeUiLanguage(activeLanguage)
   }, [activeLanguage])
+
+  // Load the human-editable semantic search data once. It lives in public/ so
+  // it is available offline after the first load.
+  useEffect(() => {
+    let active = true
+    void fetch('/emoji_emotions.json')
+      .then((response) => {
+        if (!response.ok) {
+          // No emotions file yet — semantic search simply won't match anything.
+          return null
+        }
+        return response.json()
+      })
+      .then((data: EmojiEmotionsData | null) => {
+        if (!active || !data) return
+        setEmotionData(data)
+        setEmotionIndex(buildEmotionIndex(data))
+      })
+      .catch(() => {
+        // Silently ignore: semantic search is optional.
+      })
+
+    return () => {
+      active = false
+    }
+  }, [])
 
   useEffect(() => {
     if (!initialData.refreshInBackground) {
@@ -599,22 +682,37 @@ export function EmojiGhView() {
                 )}
               </div>
 
-              <details
-                className="category-menu"
+              <button
+                id="category-trigger"
+                type="button"
+                popoverTarget="category-panel"
+                aria-expanded={menuOpen}
+                aria-label={t('settingsMenu')}
+                className={`category-trigger${menuOpen ? ' is-open' : ''}`}
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M10 2.8h4l.7 2.4 2 .8 2.2-1.1 2 3.5-1.8 1.8v2l1.8 1.8-2 3.5-2.2-1.1-2 .8-.7 2.4h-4l-.7-2.4-2-.8-2.2 1.1-2-3.5L5 12.2v-2L3.1 8.4l2-3.5 2.2 1.1 2-.8.7-2.4Z" />
+                  <circle cx="12" cy="11.2" r="2.6" />
+                </svg>
+              </button>
+              <div
+                id="category-panel"
+                popover="auto"
+                ref={menuRef}
                 onToggle={(event) => {
-                  if (event.currentTarget.open) {
+                  const popover = event.currentTarget
+                  const isOpen = 'popoverOpen' in popover
+                    ? (popover as { popoverOpen: boolean }).popoverOpen
+                    : false
+                  setMenuOpen(isOpen)
+                  if (isOpen) {
                     void refreshProjectCacheStatus()
                   }
                 }}
+                className="category-panel"
               >
-                <summary aria-label={t('settingsMenu')} title={t('settingsMenu')}>
-                  <svg aria-hidden="true" viewBox="0 0 24 24">
-                    <path d="M10 2.8h4l.7 2.4 2 .8 2.2-1.1 2 3.5-1.8 1.8v2l1.8 1.8-2 3.5-2.2-1.1-2 .8-.7 2.4h-4l-.7-2.4-2-.8-2.2 1.1-2-3.5L5 12.2v-2L3.1 8.4l2-3.5 2.2 1.1 2-.8.7-2.4Z" />
-                    <circle cx="12" cy="11.2" r="2.6" />
-                  </svg>
-                </summary>
-                <fieldset className="category-panel">
-                  <legend>{t('settingsTitle')}</legend>
+                <section className="settings-section">
+                  <h2 className="settings-section-title">{t('settingsTitle')}</h2>
                   <div className="category-controls">
                     {categoryControls.map((category) => (
                       <div className="category-control" key={category.id}>
@@ -666,8 +764,8 @@ export function EmojiGhView() {
                       <p className="empty-categories">{t('noCategories')}</p>
                     )}
                   </div>
-                  <fieldset className="language-panel">
-                    <legend>{t('language')}</legend>
+                <section className="settings-section language-panel">
+                  <h2 className="settings-section-title">{t('language')}</h2>
                     <div className="language-options">
                       {languages.map(([code, name]) => (
                         <label className="language-option" key={code}>
@@ -683,9 +781,9 @@ export function EmojiGhView() {
                         </label>
                       ))}
                     </div>
-                  </fieldset>
-                  <fieldset className="project-files-panel">
-                    <legend>{t('projectFiles')}</legend>
+                  </section>
+                  <section className="settings-section project-files-panel">
+                    <h2 className="settings-section-title">{t('projectFiles')}</h2>
                     {projectFilesConnected && (
                       <p className="project-files-ready">{t('projectFilesConnected')}</p>
                     )}
@@ -705,9 +803,9 @@ export function EmojiGhView() {
                         {projectFilesStatus}
                       </p>
                     )}
-                  </fieldset>
-                  <fieldset className="offline-cache-panel">
-                    <legend>{t('offlineCache')}</legend>
+                  </section>
+                  <section className="settings-section offline-cache-panel">
+                    <h2 className="settings-section-title">{t('offlineCache')}</h2>
                     {hasProjectCache && (
                       <p className="offline-cache-ready">{t('cacheAvailable')}</p>
                     )}
@@ -731,9 +829,9 @@ export function EmojiGhView() {
                         {cacheStatus}
                       </p>
                     )}
-                  </fieldset>
-                  <fieldset className="settings-profile">
-                    <legend>{t('profiles')}</legend>
+                  </section>
+                  <section className="settings-section settings-profile">
+                    <h2 className="settings-section-title">{t('profiles')}</h2>
                     <div className="settings-profile-options">
                       {settingsProfiles.map((profile) => (
                         <button
@@ -750,9 +848,9 @@ export function EmojiGhView() {
                         </button>
                       ))}
                     </div>
-                  </fieldset>
-                </fieldset>
-                </details>
+                  </section>
+                </section>
+              </div>
               </div>
 
               <span

@@ -1,10 +1,10 @@
 Feature('Search')
 
 async function showUnicodeSection(I) {
-  I.click('.category-menu > summary')
+  I.click('#category-trigger')
   I.waitForVisible('.category-controls')
   I.checkOption('input[aria-label="Show Unicode in results"]')
-  I.click('.category-menu > summary')
+  I.click('#category-trigger')
 }
 
 Scenario('the design route adds its curated suggestions', async ({ I }) => {
@@ -22,10 +22,10 @@ Scenario('localized route terms work after changing the UI language', async ({ I
   I.amOnPage('/')
   I.waitForElement('input[type="search"]')
   await showUnicodeSection(I)
-  I.click('.category-menu > summary')
+  I.click('#category-trigger')
   I.waitForVisible('.language-panel')
   I.checkOption('input[name="display-language"][value="ru"]')
-  I.click('.category-menu > summary')
+  I.click('#category-trigger')
 
   I.fillField('input[type="search"]', 'дизайн')
   I.waitForElement('button[title=":art:"]')

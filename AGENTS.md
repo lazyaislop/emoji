@@ -37,6 +37,13 @@ backend, router, or state-management package.
    app-shell offline support, and runtime caching for project cache assets.
    `api/projectEmojiCache.ts` checks GitHub with `If-None-Match` on launch and
    only downloads changed or missing images.
+9. `public/emoji_emotions.json` is the human-editable semantic search data.
+   It is fetched once at startup and kept in memory for offline use.
+   `src/features/github-emojis/model/emojiEmotions.ts` builds an in-memory
+   index and matches query tokens against per-emoji descriptions in all six
+   languages at once (no language switch needed). An emoji appears when at
+   least `defaultMatchThreshold` (default 0.5 / 50%) of query tokens match.
+   Search is prefix-tolerant for tokens of 3+ characters.
 
 ## Product invariants
 
@@ -86,6 +93,15 @@ backend, router, or state-management package.
   above search and moves the count below it.
 - Preserve accessible names for interactive controls and show clipboard
   failures to the user.
+- Semantic search is additive to name/route search: results from
+  `emojiSearchRoutes.ts` and direct name matching are unioned with emotion
+  matches from `public/emoji_emotions.json`. Do not remove or bypass the
+  name-based search path. Emotion matches are looked up in the live emoji
+  catalog (`emojiData`) to get image URLs; entries whose `name` is not in the
+  catalog are silently skipped.
+- The emotions file is optional: if `public/emoji_emotions.json` is missing
+  or unparseable, semantic search simply returns no matches and the app
+  continues working with name/route search only.
 
 ## Where to make changes
 

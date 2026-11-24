@@ -1,0 +1,862 @@
+{
+  "version": 1,
+  "description": "Human-editable semantic search data for GitHub emojis. Each emoji maps to keyword descriptions in all six supported UI languages (ar, zh, en, fr, ru, es). Semantic search matches query tokens against these descriptions; an emoji appears when at least matchThreshold (default 0.5 / 50%) of query tokens match. Edit this file to add or refine descriptions. Regenerate from the live GitHub catalog with scripts/generate-emoji-emotions.js.",
+  "languages": ["ar", "zh", "en", "fr", "ru", "es"],
+  "defaultMatchThreshold": 0.5,
+  "emojis": [
+    {
+      "shortcode": ":monkey:",
+      "name": "monkey",
+      "section": "Animals",
+      "descriptions": {
+        "en": ["monkey", "primate", "animal", "jungle", "banana", "wildlife"],
+        "ar": ["قرد", "primate", "حيوان", "غابة", "موز", "حياة برية"],
+        "zh": ["猴子", "灵长类", "动物", "丛林", "香蕉", "野生动物"],
+        "fr": ["singe", "primate", "animal", "jungle", "banane", "faune"],
+        "ru": ["обезьяна", "примат", "животное", "джунгли", "банан", "дикая природа"],
+        "es": ["mono", "primate", "animal", "selva", "plátano", "vida silvestre"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":monkey_face:",
+      "name": "monkey_face",
+      "section": "Animals",
+      "descriptions": {
+        "en": ["monkey face", "primate", "animal", "face", "jungle"],
+        "ar": ["وجه قرد", "primate", "حيوان", "وجه", "غابة"],
+        "zh": ["猴脸", "灵长类", "动物", "脸", "丛林"],
+        "fr": ["visage de singe", "primate", "animal", "visage", "jungle"],
+        "ru": ["морда обезьяны", "примат", "животное", "лицо", "джунгли"],
+        "es": ["cara de mono", "primate", "animal", "cara", "selva"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":cat:",
+      "name": "cat",
+      "section": "Animals",
+      "descriptions": {
+        "en": ["cat", "kitten", "feline", "pet", "animal", "meow"],
+        "ar": ["قطة", "cat", "feline", "حيوان أليف", "حيوان", "meow"],
+        "zh": ["猫", "小猫", "猫科", "宠物", "动物", "meow"],
+        "fr": ["chat", "chaton", "félin", "animal de compagnie", "animal", "miaou"],
+        "ru": ["кот", "котенок", "кошачий", "питомец", "животное", "мяу"],
+        "es": ["gato", "gatito", "felino", "mascota", "animal", "miau"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":dog:",
+      "name": "dog",
+      "section": "Animals",
+      "descriptions": {
+        "en": ["dog", "puppy", "canine", "pet", "animal", "woof", "bark"],
+        "ar": ["كلب", "GR", "canine", "حيوان أليف", "حيوان", "woof", "bark"],
+        "zh": ["狗", "小狗", "canine", "宠物", "动物", "woof", "bark"],
+        "fr": ["chien", "chiot", "canin", "animal de compagnie", "animal", "ouaf", "aboiement"],
+        "ru": ["собака", "щенок", "собачий", "питомец", "животное", "гав", "лай"],
+        "es": ["perro", "cachorro", "canino", "mascota", "animal", "guau", "ladrido"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":lion:",
+      "name": "lion",
+      "section": "Animals",
+      "descriptions": {
+        "en": ["lion", "big cat", "king of jungle", "wild animal", "roar"],
+        "ar": ["أسد", "big cat", "king of jungle", "wild animal", "roar"],
+        "zh": ["狮子", "big cat", "king of jungle", "wild animal", "roar"],
+        "fr": ["lion", "grand félin", "roi de la jungle", "animal sauvage", "rugissement"],
+        "ru": ["лев", "big cat", "king of jungle", "wild animal", "ryk"],
+        "es": ["león", "gran felino", "rey de la selva", "animal salvaje", "rugido"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":tiger:",
+      "name": "tiger",
+      "section": "Animals",
+      "descriptions": {
+        "en": ["tiger", "big cat", "striped", "wild animal", "roar"],
+        "ar": ["نمر", "big cat", "striped", "wild animal", "roar"],
+        "zh": ["老虎", "big cat", "striped", "wild animal", "roar"],
+        "fr": ["tigre", "grand félin", "rayé", "animal sauvage", "rugissement"],
+        "ru": ["тигр", "big cat", "striped", "wild animal", "рык"],
+        "es": ["tigre", "gran felino", "rayado", "animal salvaje", "rugido"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":elephant:",
+      "name": "elephant",
+      "section": "Animals",
+      "descriptions": {
+        "en": ["elephant", "big animal", "trunk", "gray", "wildlife", "africa", "asia"],
+        "ar": ["fil", "big animal", "trunk", "gray", "wildlife", "africa", "asia"],
+        "zh": ["大象", "big animal", "trunk", "gray", "wildlife", "africa", "asia"],
+        "fr": ["éléphant", "gros animal", "trompe", "gris", "faune", "afrique", "asie"],
+        "ru": ["слон", "big animal", "trunk", "gray", "wildlife", "africa", "asia"],
+        "es": ["elefante", "gran animal", "trompa", "gris", "vida silvestre", "áfrica", "asia"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":bear:",
+      "name": "bear",
+      "section": "Animals",
+      "descriptions": {
+        "en": ["bear", "big animal", "wildlife", "forest", "brown", "grizzly", "polar"],
+        "ar": ["دب", "big animal", "wildlife", "forest", "brown", "grizzly", "polar"],
+        "zh": ["熊", "big animal", "wildlife", "forest", "brown", "grizzly", "polar"],
+        "fr": ["ours", "gros animal", "faune", "forêt", "marron", "grizzly", "polaire"],
+        "ru": ["медведь", "big animal", "wildlife", "forest", "brown", "grizzly", "polar"],
+        "es": ["oso", "gran animal", "vida silvestre", "bosque", "marrón", "oso pardo", "polar"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":panda_face:",
+      "name": "panda_face",
+      "section": "Animals",
+      "descriptions": {
+        "en": ["panda", "bear", "black and white", "cute", "china", "bamboo"],
+        "ar": ["باندا", "bear", "black and white", "cute", "china", "bamboo"],
+        "zh": ["熊猫", "bear", "black and white", "cute", "china", "bamboo"],
+        "fr": ["panda", "ours", "noir et blanc", "mignon", "chine", "bambou"],
+        "ru": ["панда", "bear", "black and white", "cute", "china", "bamboo"],
+        "es": ["panda", "oso", "blanco y negro", "lindo", "china", "bambú"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":koala:",
+      "name": "koala",
+      "section": "Animals",
+      "descriptions": {
+        "en": ["koala", "bear", "australia", "eucalyptus", "cute", "marsupial"],
+        "ar": ["كوالا", "bear", "australia", "eucalyptus", "cute", "marsupial"],
+        "zh": ["考拉", "bear", "australia", "eucalyptus", "cute", "marsupial"],
+        "fr": ["koala", "ours", "australie", "eucalyptus", "mignon", "marsupial"],
+        "ru": ["коала", "bear", "australia", "eucalyptus", "cute", "marsupial"],
+        "es": ["koala", "oso", "australia", "eucalyptus", "cute", "marsupial"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":rabbit:",
+      "name": "rabbit",
+      "section": "Animals",
+      "descriptions": {
+        "en": ["rabbit", "bunny", "hare", "carrot", "ears", "cute", "animal"],
+        "ar": ["arnab", "bunny", "hare", "carrot", "ears", "cute", "animal"],
+        "zh": ["兔子", "bunny", "hare", "carrot", "ears", "cute", "animal"],
+        "fr": ["lapin", "lapereau", "lièvre", "carotte", "oreilles", "mignon", "animal"],
+        "ru": ["кролик", "bunny", "hare", "carrot", "ears", "cute", "animal"],
+        "es": ["conejo", "conejo", "liebre", "zanahoria", "orejas", "lindo", "animal"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":panda_face:",
+      "name": "panda_face",
+      "section": "Animals",
+      "descriptions": {
+        "en": ["panda", "bear", "black and white", "cute", "china", "bamboo"],
+        "ar": ["باندا", "bear", "black and white", "cute", "china", "bamboo"],
+        "zh": ["熊猫", "bear", "black and white", "cute", "china", "bamboo"],
+        "fr": ["panda", "ours", "noir et blanc", "mignon", "chine", "bambou"],
+        "ru": ["панда", "bear", "black and white", "cute", "china", "bamboo"],
+        "es": ["panda", "oso", "blanco y negro", "lindo", "china", "bambú"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":smile:",
+      "name": "smile",
+      "section": "Emotes",
+      "descriptions": {
+        "en": ["smile", "happy", "joy", "face", "emotion", "grin", "pleased"],
+        "ar": ["ابتسامة", "sعيد", "joy", "face", "emotion", "grin", "pleased"],
+        "zh": ["微笑", "开心", "joy", "face", "emotion", "grin", "pleased"],
+        "fr": ["sourire", "heureux", "joie", "visage", "émotion", "sourire", "content"],
+        "ru": ["улыбка", "счастливый", "радость", "лицо", "эмоция", "улыбка", "довольный"],
+        "es": ["sonrisa", "feliz", "alegría", "cara", "emoción", "sonrisa", "contento"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":laughing:",
+      "name": "laughing",
+      "section": "Emotes",
+      "descriptions": {
+        "en": ["laugh", "happy", "joy", "face", "emotion", "grin", "funny", "lol"],
+        "ar": ["ضحك", "sعيد", "joy", "face", "emotion", "grin", "funny", "lol"],
+        "zh": ["大笑", "开心", "joy", "face", "emotion", "grin", "funny", "lol"],
+        "fr": ["rire", "heureux", "joie", "visage", "émotion", "sourire", "drôle", "mdr"],
+        "ru": ["смех", "счастливый", "радость", "лицо", "эмоция", "улыбка", "смешно", "lol"],
+        "es": ["risa", "feliz", "alegría", "cara", "emoción", "sonrisa", "divertido", "lol"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":heart:",
+      "name": "heart",
+      "section": "Emotes",
+      "descriptions": {
+        "en": ["heart", "love", "romance", "red", "emotion", "like", "favorite"],
+        "ar": ["قلب", "love", "romance", "red", "emotion", "like", "favorite"],
+        "zh": ["心", "爱", "romance", "red", "emotion", "like", "favorite"],
+        "fr": ["cœur", "amour", "romance", "rouge", "émotion", "j'aime", "préféré"],
+        "ru": ["сердце", "любовь", "романтика", "красный", "эмоция", "нравится", "избранное"],
+        "es": ["corazón", "amor", "romance", "rojo", "emoción", "me gusta", "favorito"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":sob:",
+      "name": "sob",
+      "section": "Emotes",
+      "descriptions": {
+        "en": ["cry", "sad", "tears", "emotion", "face", "sorrow", "upset"],
+        "ar": ["بكاء", "sad", "tears", "emotion", "face", "sorrow", "upset"],
+        "zh": ["哭", "难过", "tears", "emotion", "face", "sorrow", "upset"],
+        "fr": ["pleurer", "triste", "larmes", "émotion", "visage", "chagrin", "énervé"],
+        "ru": ["плач", "грустный", "слезы", "эмоция", "лицо", "скорбь", "расстроенный"],
+        "es": ["llanto", "triste", "lágrimas", "emoción", "cara", "pesar", "molesto"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":angry:",
+      "name": "angry",
+      "section": "Emotes",
+      "descriptions": {
+        "en": ["angry", "mad", "face", "emotion", "red", "furious", "annoyed"],
+        "ar": ["غاضب", "mad", "face", "emotion", "red", "furious", "annoyed"],
+        "zh": ["生气", "mad", "face", "emotion", "red", "furious", "annoyed"],
+        "fr": ["fâché", "énervé", "visage", "émotion", "rouge", "furieux", "énervé"],
+        "ru": ["злой", "злой", "лицо", "эмоция", "красный", "яростный", "раздраженный"],
+        "es": ["enojado", "enojado", "cara", "emoción", "rojo", "furioso", "molesto"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":thumbsup:",
+      "name": "thumbsup",
+      "section": "Emotes",
+      "descriptions": {
+        "en": ["thumbs up", "like", "approve", "good", "yes", "ok", "hand", "gesture"],
+        "ar": ["إبهام للأعلى", "like", "approve", "good", "yes", "ok", "hand", "gesture"],
+        "zh": ["点赞", "like", "approve", "good", "yes", "ok", "hand", "gesture"],
+        "fr": ["pouce vers le haut", "j'aime", "approuver", "bien", "oui", "ok", "main", "geste"],
+        "ru": ["палец вверх", "нравится", "одобрить", "хорошо", "да", "ок", "рука", "жест"],
+        "es": ["pulgar arriba", "me gusta", "aprobar", "bien", "sí", "ok", "mano", "gesto"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":thumbsdown:",
+      "name": "thumbsdown",
+      "section": "Emotes",
+      "descriptions": {
+        "en": ["thumbs down", "dislike", "disapprove", "bad", "no", "hand", "gesture"],
+        "ar": ["إبهام للأسفل", "dislike", "disapprove", "bad", "no", "hand", "gesture"],
+        "zh": ["踩", "dislike", "disapprove", "bad", "no", "hand", "gesture"],
+        "fr": ["pouce vers le bas", "je n'aime pas", "désapprouver", "mauvais", "non", "main", "geste"],
+        "ru": ["палец вниз", "не нравится", "одобряю", "плохо", "нет", "рука", "жест"],
+        "es": ["pulgar abajo", "no me gusta", "desaprobar", "mal", "no", "mano", "gesto"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":clap:",
+      "name": "clap",
+      "section": "Emotes",
+      "descriptions": {
+        "en": ["clap", "applause", "hands", "praise", "good job", "celebrate"],
+        "ar": ["تصفيق", "applause", "hands", "praise", "good job", "celebrate"],
+        "zh": ["鼓掌", "applause", "hands", "praise", "good job", "celebrate"],
+        "fr": ["applaudir", "applaudissements", "mains", "félicitations", "bon travail", "célébrer"],
+        "ru": ["аплодисменты", "applause", "hands", "praise", "good job", "celebrate"],
+        "es": ["aplaudir", "aplausos", "manos", "elogio", "buen trabajo", "celebrar"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":fire:",
+      "name": "fire",
+      "section": "Emotes",
+      "descriptions": {
+        "en": ["fire", "flame", "hot", "burn", "lit", "awesome", "great"],
+        "ar": ["نار", "flame", "hot", "burn", "lit", "awesome", "great"],
+        "zh": ["火", "flame", "hot", "burn", "lit", "awesome", "great"],
+        "fr": ["feu", "flamme", "chaud", "brûler", "lit", "super", "génial"],
+        "ru": ["огонь", "flame", "горячий", "гореть", "круто", "отлично", "great"],
+        "es": ["fuego", "llama", "caliente", "quemar", "genial", "increíble", "great"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":100:",
+      "name": "100",
+      "section": "Emotes",
+      "descriptions": {
+        "en": ["hundred", "perfect", "score", "grade", "keep it real", "excellent"],
+        "ar": ["مئة", "perfect", "score", "grade", "keep it real", "excellent"],
+        "zh": ["一百分", "perfect", "score", "grade", "keep it real", "excellent"],
+        "fr": ["cent", "parfait", "note", "évaluation", "keep it real", "excellent"],
+        "ru": ["сто", "отлично", "оценка", "оценка", "keep it real", "отлично"],
+        "es": ["cien", "perfecto", "puntuación", "calificación", "keep it real", "excelente"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":red_circle:",
+      "name": "red_circle",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["red", "circle", "color", "shape", "round", "dot"],
+        "ar": ["أحمر", "circle", "color", "shape", "round", "dot"],
+        "zh": ["红色", "circle", "color", "shape", "round", "dot"],
+        "fr": ["rouge", "cercle", "couleur", "forme", "rond", "point"],
+        "ru": ["красный", "круг", "цвет", "форма", "круглый", "точка"],
+        "es": ["rojo", "círculo", "color", "forma", "redondo", "punto"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":blue_circle:",
+      "name": "blue_circle",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["blue", "circle", "color", "shape", "round", "dot"],
+        "ar": ["أزرق", "circle", "color", "shape", "round", "dot"],
+        "zh": ["蓝色", "circle", "color", "shape", "round", "dot"],
+        "fr": ["bleu", "cercle", "couleur", "forme", "rond", "point"],
+        "ru": ["синий", "круг", "цвет", "форма", "круглый", "точка"],
+        "es": ["azul", "círculo", "color", "forma", "redondo", "punto"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":green_circle:",
+      "name": "green_circle",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["green", "circle", "color", "shape", "round", "dot"],
+        "ar": ["أخضر", "circle", "color", "shape", "round", "dot"],
+        "zh": ["绿色", "circle", "color", "shape", "round", "dot"],
+        "fr": ["vert", "cercle", "couleur", "forme", "rond", "point"],
+        "ru": ["зеленый", "круг", "цвет", "форма", "круглый", "точка"],
+        "es": ["verde", "círculo", "color", "forma", "redondo", "punto"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":yellow_circle:",
+      "name": "yellow_circle",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["yellow", "circle", "color", "shape", "round", "dot"],
+        "ar": ["أصفر", "circle", "color", "shape", "round", "dot"],
+        "zh": ["黄色", "circle", "color", "shape", "round", "dot"],
+        "fr": ["jaune", "cercle", "couleur", "forme", "rond", "point"],
+        "ru": ["желтый", "круг", "цвет", "форма", "круглый", "точка"],
+        "es": ["amarillo", "círculo", "color", "forma", "redondo", "punto"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":black_circle:",
+      "name": "black_circle",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["black", "circle", "color", "shape", "round", "dot"],
+        "ar": ["أسود", "circle", "color", "shape", "round", "dot"],
+        "zh": ["黑色", "circle", "color", "shape", "round", "dot"],
+        "fr": ["noir", "cercle", "couleur", "forme", "rond", "point"],
+        "ru": ["черный", "круг", "цвет", "форма", "круглый", "точка"],
+        "es": ["negro", "círculo", "color", "forma", "redondo", "punto"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":white_circle:",
+      "name": "white_circle",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["white", "circle", "color", "shape", "round", "dot"],
+        "ar": ["أبيض", "circle", "color", "shape", "round", "dot"],
+        "zh": ["白色", "circle", "color", "shape", "round", "dot"],
+        "fr": ["blanc", "cercle", "couleur", "forme", "rond", "point"],
+        "ru": ["белый", "круг", "цвет", "форма", "круглый", "точка"],
+        "es": ["blanco", "círculo", "color", "forma", "redondo", "punto"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":orange_circle:",
+      "name": "orange_circle",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["orange", "circle", "color", "shape", "round", "dot"],
+        "ar": ["برتقالي", "circle", "color", "shape", "round", "dot"],
+        "zh": ["橙色", "circle", "color", "shape", "round", "dot"],
+        "fr": ["orange", "cercle", "couleur", "forme", "rond", "point"],
+        "ru": ["оранжевый", "круг", "цвет", "форма", "круглый", "точка"],
+        "es": ["naranja", "círculo", "color", "forma", "redondo", "punto"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":purple_circle:",
+      "name": "purple_circle",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["purple", "circle", "color", "shape", "round", "dot"],
+        "ar": ["أرجواني", "circle", "color", "shape", "round", "dot"],
+        "zh": ["紫色", "circle", "color", "shape", "round", "dot"],
+        "fr": ["violet", "cercle", "couleur", "forme", "rond", "point"],
+        "ru": ["фиолетовый", "круг", "цвет", "форма", "круглый", "точка"],
+        "es": ["morado", "círculo", "color", "forma", "redondo", "punto"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":brown_circle:",
+      "name": "brown_circle",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["brown", "circle", "color", "shape", "round", "dot"],
+        "ar": ["بني", "circle", "color", "shape", "round", "dot"],
+        "zh": ["棕色", "circle", "color", "shape", "round", "dot"],
+        "fr": ["marron", "cercle", "couleur", "forme", "rond", "point"],
+        "ru": ["коричневый", "круг", "цвет", "форма", "круглый", "точка"],
+        "es": ["marrón", "círculo", "color", "forma", "redondo", "punto"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":sun:",
+      "name": "sun",
+      "section": "Celestial",
+      "descriptions": {
+        "en": ["sun", "sunny", "weather", "day", "bright", "light", "sky"],
+        "ar": ["شمس", "sunny", "weather", "day", "bright", "light", "sky"],
+        "zh": ["太阳", "晴天", "weather", "day", "bright", "light", "sky"],
+        "fr": ["soleil", "ensoleillé", "météo", "jour", "brillant", "lumière", "ciel"],
+        "ru": ["солнце", "солнечно", "погода", "день", "яркий", "свет", "небо"],
+        "es": ["sol", "soleado", "clima", "día", "brillante", "luz", "cielo"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":full_moon:",
+      "name": "full_moon",
+      "section": "Celestial",
+      "descriptions": {
+        "en": ["moon", "full moon", "night", "sky", "celestial", "lunar"],
+        "ar": ["القمر", "full moon", "night", "sky", "celestial", "lunar"],
+        "zh": ["满月", "full moon", "night", "sky", "celestial", "lunar"],
+        "fr": ["lune", "pleine lune", "nuit", "ciel", "céleste", "lunaire"],
+        "ru": ["луна", "полнолуние", "ночь", "небо", "небесное", "лунный"],
+        "es": ["luna", "luna llena", "noche", "cielo", "celestial", "lunar"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":crescent_moon:",
+      "name": "crescent_moon",
+      "section": "Celestial",
+      "descriptions": {
+        "en": ["moon", "crescent", "night", "sky", "celestial", "lunar"],
+        "ar": ["الهلال", "crescent", "night", "sky", "celestial", "lunar"],
+        "zh": ["弦月", "crescent", "night", "sky", "celestial", "lunar"],
+        "fr": ["lune croissante", "croissant", "nuit", "ciel", "céleste", "lunaire"],
+        "ru": ["месяц", "растущий месяц", "ночь", "небо", "небесное", "лунный"],
+        "es": ["luna creciente", "crescent", "noche", "cielo", "celestial", "lunar"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":star:",
+      "name": "star",
+      "section": "Celestial",
+      "descriptions": {
+        "en": ["star", "night", "sky", "celestial", "glow", "sparkle"],
+        "ar": ["نجم", "night", "sky", "celestial", "glow", "sparkle"],
+        "zh": ["星星", "夜晚", "sky", "celestial", "glow", "sparkle"],
+        "fr": ["étoile", "nuit", "ciel", "céleste", "briller", "étinceler"],
+        "ru": ["звезда", "ночь", "небо", "небесное", "свечение", "искра"],
+        "es": ["estrella", "noche", "cielo", "celestial", "brillo", "brillar"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":cloud:",
+      "name": "cloud",
+      "section": "Weather",
+      "descriptions": {
+        "en": ["cloud", "weather", "sky", "overcast", "rain", "storm"],
+        "ar": ["سحابة", "weather", "sky", "overcast", "rain", "storm"],
+        "zh": ["云", "weather", "sky", "overcast", "rain", "storm"],
+        "fr": ["nuage", "météo", "ciel", "couvert", "pluie", "orage"],
+        "ru": ["облако", "погода", "небо", "пасмурно", "дождь", "буря"],
+        "es": ["nube", "clima", "cielo", "nublado", "lluvia", "tormenta"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":rainbow:",
+      "name": "rainbow",
+      "section": "Weather",
+      "descriptions": {
+        "en": ["rainbow", "weather", "sky", "colorful", "rain", "sun", "pride"],
+        "ar": ["قوس قزح", "weather", "sky", "colorful", "rain", "sun", "pride"],
+        "zh": ["彩虹", "weather", "sky", "多彩", "rain", "sun", "骄傲"],
+        "fr": ["arc-en-ciel", "météo", "ciel", "coloré", "pluie", "soleil", "fierté"],
+        "ru": ["радуга", "погода", "небо", "цветной", "дождь", "солнце", "гордость"],
+        "es": ["arcoíris", "clima", "cielo", "colorido", "lluvia", "sol", "orgullo"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":snowflake:",
+      "name": "snowflake",
+      "section": "Weather",
+      "descriptions": {
+        "en": ["snow", "winter", "cold", "weather", "ice", "freeze"],
+        "ar": ["ثلج", "winter", "cold", "weather", "ice", "freeze"],
+        "zh": ["雪花", "冬天", "cold", "weather", "ice", "freeze"],
+        "fr": ["flocon de neige", "hiver", "froid", "météo", "glace", "geler"],
+        "ru": ["снежинка", "зима", "холодно", "погода", "льд", "замерзать"],
+        "es": ["copo de nieve", "invierno", "frío", "clima", "hielo", "congelar"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":umbrella:",
+      "name": "umbrella",
+      "section": "Weather",
+      "descriptions": {
+        "en": ["umbrella", "rain", "weather", "protection", "storm"],
+        "ar": ["مظلة", "rain", "weather", "protection", "storm"],
+        "zh": ["雨伞", "rain", "weather", "protection", "storm"],
+        "fr": ["parapluie", "pluie", "météo", "protection", "orage"],
+        "ru": ["зонт", "дождь", "погода", "защита", "буря"],
+        "es": ["paraguas", "lluvia", "clima", "protección", "tormenta"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":soccer:",
+      "name": "soccer",
+      "section": "Sports & activities",
+      "descriptions": {
+        "en": ["soccer", "football", "sport", "ball", "game", "play"],
+        "ar": ["كرة قدم", "football", "sport", "ball", "game", "play"],
+        "zh": ["足球", "足球", "运动", "球", "游戏", "play"],
+        "fr": ["football", "soccer", "sport", "ballon", "jeu", "jouer"],
+        "ru": ["футбол", "футбол", "спорт", "мяч", "игра", "играть"],
+        "es": ["fútbol", "fútbol", "deporte", "balón", "juego", "jugar"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":basketball:",
+      "name": "basketball",
+      "section": "Sports & activities",
+      "descriptions": {
+        "en": ["basketball", "sport", "ball", "game", "play", "hoop"],
+        "ar": ["كرة سلة", "sport", "ball", "game", "play", "hoop"],
+        "zh": ["篮球", "运动", "球", "game", "play", "hoop"],
+        "fr": ["basketball", "sport", "ballon", "jeu", "jouer", "panier"],
+        "ru": ["баскетбол", "спорт", "мяч", "игра", "играть", "кольцо"],
+        "es": ["baloncesto", "deporte", "balón", "juego", "jugar", "aro"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":tennis:",
+      "name": "tennis",
+      "section": "Sports & activities",
+      "descriptions": {
+        "en": ["tennis", "sport", "ball", "racket", "game", "play"],
+        "ar": ["تنس", "sport", "ball", "racket", "game", "play"],
+        "zh": ["网球", "运动", "球", "ball", "racket", "game", "play"],
+        "fr": ["tennis", "sport", "balle", "raquette", "jeu", "jouer"],
+        "ru": ["теннис", "спорт", "мяч", "ракетка", "игра", "играть"],
+        "es": ["tenis", "deporte", "pelota", "raqueta", "juego", "jugar"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":running:",
+      "name": "running",
+      "section": "Sports & activities",
+      "descriptions": {
+        "en": ["run", "running", "sport", "exercise", "person", "athlete"],
+        "ar": ["جري", "running", "sport", "exercise", "person", "athlete"],
+        "zh": ["跑步", "跑步", "运动", "锻炼", "人", "运动员"],
+        "fr": ["courir", "course à pied", "sport", "exercice", "personne", "athlète"],
+        "ru": ["бег", "бег", "спорт", "упражнение", "человек", "спортсмен"],
+        "es": ["correr", "corriendo", "deporte", "ejercicio", "persona", "atleta"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":swimming:",
+      "name": "swimming",
+      "section": "Sports & activities",
+      "descriptions": {
+        "en": ["swim", "swimming", "sport", "water", "exercise", "pool"],
+        "ar": ["سباحة", "swimming", "sport", "water", "exercise", "pool"],
+        "zh": ["游泳", "游泳", "运动", "水", "锻炼", "泳池"],
+        "fr": ["nager", "natation", "sport", "eau", "exercice", "piscine"],
+        "ru": ["плавание", "плавание", "спорт", "вода", "упражнение", "бассейн"],
+        "es": ["nadar", "natación", "deporte", "agua", "ejercicio", "piscina"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":earth_americas:",
+      "name": "earth_americas",
+      "section": "Celestial",
+      "descriptions": {
+        "en": ["earth", "world", "globe", "planet", "americas", "geography"],
+        "ar": ["الأرض", "world", "globe", "planet", "americas", "geography"],
+        "zh": ["地球", "世界", "globe", "planet", "美洲", "地理"],
+        "fr": ["terre", "monde", "globe", "planète", "Amériques", "géographie"],
+        "ru": ["земля", "мир", "глобус", "планета", "Америка", "география"],
+        "es": ["tierra", "mundo", "globo", "planeta", "Américas", "geografía"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":rocket:",
+      "name": "rocket",
+      "section": "Emotes",
+      "descriptions": {
+        "en": ["rocket", "space", "launch", "fly", "fast", "speed"],
+        "ar": ["صاروخ", "space", "launch", "fly", "fast", "speed"],
+        "zh": ["火箭", "space", "发射", "fly", "快", "速度"],
+        "fr": ["fusée", "espace", "lancement", "voler", "rapide", "vitesse"],
+        "ru": ["ракета", "космос", "запуск", "летать", "быстро", "скорость"],
+        "es": ["cohete", "espacio", "lanzamiento", "volar", "rápido", "velocidad"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":robot:",
+      "name": "robot",
+      "section": "Emotes",
+      "descriptions": {
+        "en": ["robot", "ai", "artificial intelligence", "machine", "tech"],
+        "ar": ["روبوت", "ai", "الذكاء الاصطناعي", "machine", "tech"],
+        "zh": ["机器人", "AI", "人工智能", "机器", "科技"],
+        "fr": ["robot", "IA", "intelligence artificielle", "machine", "technologie"],
+        "ru": ["робот", "искусственный интеллект", "машинное обучение", "машина", "технологии"],
+        "es": ["robot", "IA", "inteligencia artificial", "máquina", "tecnología"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":art:",
+      "name": "art",
+      "section": "Emotes",
+      "descriptions": {
+        "en": ["art", "design", "creative", "paint", "drawing", "color"],
+        "ar": ["فن", "design", "creative", "رسم", "رسم", "color"],
+        "zh": ["艺术", "设计", "creative", "绘画", "画", "颜色"],
+        "fr": ["art", "design", "créatif", "peindre", "dessin", "couleur"],
+        "ru": ["искусство", "дизайн", "творческий", "рисовать", "рисунок", "цвет"],
+        "es": ["arte", "diseño", "creativo", "pintar", "dibujo", "color"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":octocat:",
+      "name": "octocat",
+      "section": "GitHub",
+      "descriptions": {
+        "en": ["github", "octocat", "cat", "logo", "mascot", "code"],
+        "ar": ["github", "قط", "قط", "شعار", "تميمة", "كود"],
+        "zh": ["github", "猫", "猫", "徽标", "吉祥物", "代码"],
+        "fr": ["github", "chat", "chat", "logo", "mascotte", "code"],
+        "ru": ["гитхаб", "кот", "кот", "логотип", "талисман", "код"],
+        "es": ["github", "gato", "gato", "logo", "mascota", "código"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":alarm_clock:",
+      "name": "alarm_clock",
+      "section": "Clocks",
+      "descriptions": {
+        "en": ["alarm clock", "clock", "time", "wake up", "morning", "schedule"],
+        "ar": ["منبه", "clock", "time", "استيقظ", "صباح", "موعد"],
+        "zh": ["闹钟", "时钟", "时间", "叫醒", "早晨", "日程"],
+        "fr": ["réveil", "horloge", "temps", "réveiller", "matin", "emploi du temps"],
+        "ru": ["будильник", "часы", "время", "просыпаться", "утро", "расписание"],
+        "es": ["despertador", "reloj", "hora", "despertar", "mañana", "horario"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":arrow_up:",
+      "name": "arrow_up",
+      "section": "Arrows",
+      "descriptions": {
+        "en": ["arrow", "up", "direction", "north", "point", "sign"],
+        "ar": ["سهم", "up", "direction", "شمال", "إشارة", "علامة"],
+        "zh": ["箭头", "向上", "direction", "北方", "指向", "标志"],
+        "fr": ["flèche", "haut", "direction", "nord", "pointer", "signe"],
+        "ru": ["стрела", "вверх", "направление", "север", "указать", "знак"],
+        "es": ["flecha", "arriba", "dirección", "norte", "señalar", "signo"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":arrow_down:",
+      "name": "arrow_down",
+      "section": "Arrows",
+      "descriptions": {
+        "en": ["arrow", "down", "direction", "south", "point", "sign"],
+        "ar": ["سهم", "down", "direction", "جنوب", "إشارة", "علامة"],
+        "zh": ["向下", "下降", "direction", "南方", "指向", "标志"],
+        "fr": ["flèche", "bas", "direction", "sud", "pointer", "signe"],
+        "ru": ["стрела", "вниз", "направление", "юг", "указать", "знак"],
+        "es": ["flecha", "abajo", "dirección", "sur", "señalar", "signo"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":arrow_left:",
+      "name": "arrow_left",
+      "section": "Arrows",
+      "descriptions": {
+        "en": ["arrow", "left", "direction", "west", "point", "sign", "back"],
+        "ar": ["سهم", "left", "direction", "غرب", "إشارة", "علامة", "back"],
+        "zh": ["向左", "向左", "direction", "西方", "指向", "标志", "返回"],
+        "fr": ["flèche", "gauche", "direction", "ouest", "pointer", "signe", "retour"],
+        "ru": ["стрела", "влево", "направление", "запад", "указать", "знак", "назад"],
+        "es": ["flecha", "izquierda", "dirección", "oeste", "señalar", "signo", "atrás"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":arrow_right:",
+      "name": "arrow_right",
+      "section": "Arrows",
+      "descriptions": {
+        "en": ["arrow", "right", "direction", "east", "point", "sign", "next"],
+        "ar": ["سهم", "right", "direction", "شرق", "إشارة", "علامة", "التالي"],
+        "zh": ["向右", "向右", "direction", "东方", "指向", "标志", "下一个"],
+        "fr": ["flèche", "droite", "direction", "est", "pointer", "signe", "suivant"],
+        "ru": ["стрела", "вправо", "направление", "восток", "указать", "знак", "следующий"],
+        "es": ["flecha", "derecha", "dirección", "este", "señalar", "signo", "siguiente"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":person:",
+      "name": "person",
+      "section": "People",
+      "descriptions": {
+        "en": ["person", "human", "people", "individual", "man", "woman"],
+        "ar": ["شخص", "human", "people", "فرد", "رجل", "امرأة"],
+        "zh": ["人", "人类", "人", "个体", "男人", "女人"],
+        "fr": ["personne", "humain", "personnes", "individu", "homme", "femme"],
+        "ru": ["человек", "человек", "люди", "индивидуум", "мужчина", "женщина"],
+        "es": ["persona", "ser humano", "personas", "individuo", "hombre", "mujer"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":red_square:",
+      "name": "red_square",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["red", "square", "color", "shape", "block", " cuadro"],
+        "ar": ["أحمر", "square", "color", "forma", "bloque", "cuadro"],
+        "zh": ["红色", "正方形", "颜色", "形状", "block", "cuadro"],
+        "fr": ["rouge", "carré", "couleur", "forme", "bloc", "carré"],
+        "ru": ["красный", "квадрат", "цвет", "форма", "блок", "квадрат"],
+        "es": ["rojo", "cuadrado", "color", "forma", "bloque", "cuadro"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":blue_square:",
+      "name": "blue_square",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["blue", "square", "color", "shape", "block"],
+        "ar": ["أزرق", "square", "color", "forma", "bloque"],
+        "zh": ["蓝色", "正方形", "颜色", "形状", "block"],
+        "fr": ["bleu", "carré", "couleur", "forme", "bloc"],
+        "ru": ["синий", "квадрат", "цвет", "форма", "блок"],
+        "es": ["azul", "cuadrado", "color", "forma", "bloque"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":green_square:",
+      "name": "green_square",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["green", "square", "color", "shape", "block"],
+        "ar": ["أخضر", "square", "color", "forma", "bloque"],
+        "zh": ["绿色", "正方形", "颜色", "形状", "block"],
+        "fr": ["vert", "carré", "couleur", "forme", "bloc"],
+        "ru": ["зеленый", "квадрат", "цвет", "форма", "блок"],
+        "es": ["verde", "cuadrado", "color", "forma", "bloque"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":yellow_square:",
+      "name": "yellow_square",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["yellow", "square", "color", "shape", "block"],
+        "ar": ["أصفر", "square", "color", "forma", "bloque"],
+        "zh": ["黄色", "正方形", "颜色", "形状", "block"],
+        "fr": ["jaune", "carré", "couleur", "forme", "bloc"],
+        "ru": ["желтый", "квадрат", "цвет", "форма", "блок"],
+        "es": ["amarillo", "cuadrado", "color", "forma", "bloque"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":black_square_button:",
+      "name": "black_square_button",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["black", "square", "button", "color", "shape"],
+        "ar": ["أسود", "مربع", "زر", "color", "forma"],
+        "zh": ["黑色", "正方形", "按钮", "颜色", "形状"],
+        "fr": ["noir", "carré", "bouton", "couleur", "forme"],
+        "ru": ["черный", "квадрат", "кнопка", "цвет", "форма"],
+        "es": ["negro", "cuadrado", "botón", "color", "forma"]
+      },
+      "matchThreshold": 0.5
+    },
+    {
+      "shortcode": ":white_square_button:",
+      "name": "white_square_button",
+      "section": "Colors",
+      "descriptions": {
+        "en": ["white", "square", "button", "color", "shape"],
+        "ar": ["أبيض", "مربع", "زر", "color", "forma"],
+        "zh": ["白色", "正方形", "按钮", "颜色", "形状"],
+        "fr": ["blanc", "carré", "bouton", "couleur", "forme"],
+        "ru": ["белый", "квадрат", "кнопка", "цвет", "форма"],
+        "es": ["blanco", "cuadrado", "botón", "color", "forma"]
+      },
+      "matchThreshold": 0.5
+    }
+  ]
+}
